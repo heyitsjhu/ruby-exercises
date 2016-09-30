@@ -2,25 +2,18 @@ class Sieve
   
   def initialize(number)
     @limit = number
-  end
-
-  def primes
-    primes = []
-
-    return primes if @limit < 2
-
-    (1..@limit).each do |i|
-      primes << i if is_prime?(i)
-    end
-
-    primes
+    @primes = []
   end
 
   def is_prime?(number)
     factors = 0
-    1.upto(number) do |i|
-      factors += 1 if (number % i == 0)
-    end
+    1.upto(number) { |i| factors += 1 if (number % i == 0) }
     factors == 2 ? true : false
+  end
+
+  def primes
+    return @primes if @limit < 2
+    (1..@limit).each { |i| @primes << i if is_prime?(i) }
+    @primes
   end
 end
