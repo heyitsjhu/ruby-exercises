@@ -3,11 +3,9 @@ module BookKeeping
 end
 
 class Robot
-
-  attr_reader :new_or_reset
-
   @@used_names = []
 
+  attr_reader :new_or_reset
   def initialize
     @new_or_reset = true
     @name = ""
